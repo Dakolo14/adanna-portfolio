@@ -53,6 +53,8 @@ header {
 }
 
 .navbar-links {
+  display: flex;
+  gap: 2.5rem;
   z-index: 10;
 }
 
@@ -64,8 +66,70 @@ header {
   transition: opacity 0.3s ease;
 }
 
+.nav-link.active {
+  font-weight: 500;
+  border-bottom: 1px solid white;
+}
+
 .nav-link:hover {
   opacity: 0.7;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  
+  .navbar-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-color);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.4s ease;
+    gap: 3rem;
+  }
+  
+  .navbar-links.open {
+    right: 0;
+  }
+  
+  .nav-link {
+    font-size: 2rem;
+  }
 }
 
 /* Hero Section */
@@ -239,22 +303,103 @@ body, a, button, .project-card, .menu-icon, .logo {
   }
 }
 
+/* Page transitions & General */
+.page-transition {
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  letter-spacing: -1px;
+}
+
 /* About Section */
 .about-section {
   width: 100%;
-  padding: 2rem 4rem 8rem 4rem;
+  padding: 4rem 4rem 8rem 4rem;
 }
 
 .about-content p {
   color: var(--text-secondary);
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 300;
   max-width: 800px;
   line-height: 1.6;
 }
 
+/* Resume Section */
+.resume-section {
+  padding: 4rem;
+  max-width: 1000px;
+}
+
+.resume-block {
+  margin-bottom: 3rem;
+}
+
+.resume-block h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.resume-item {
+  margin-bottom: 1.5rem;
+}
+
+.resume-item h4 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.resume-date {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.skills-list {
+  list-style: none;
+}
+
+.skills-list li {
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.download-btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  font-weight: 300;
+}
+
+.download-btn:hover {
+  background-color: white;
+  color: black;
+}
+
 @media (max-width: 900px) {
-  .about-section {
-    padding: 1rem 2rem 6rem 2rem;
+  .about-section, .resume-section {
+    padding: 2rem 2rem 6rem 2rem;
+  }
+  .page-title {
+    font-size: 2.2rem;
   }
 }
