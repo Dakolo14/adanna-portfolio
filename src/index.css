@@ -415,7 +415,7 @@ body, a, button, .project-card, .menu-icon, .logo {
 }
 
 .dynamic-word {
-  animation: dynamicMotion 5s infinite;
+  animation: dynamicMotion 1.2s infinite;
   display: inline-block;
   padding: 0 4px;
 }
