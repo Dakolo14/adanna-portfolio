@@ -26,7 +26,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2.5rem 4rem;
+  padding: 1.25rem 4rem;
   position: relative;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -46,35 +46,26 @@ header {
 .logo span {
   font-style: italic;
   font-weight: 700;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   background: linear-gradient(to right, #fff, #ccc);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.menu-icon {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+.navbar-links {
   z-index: 10;
 }
 
-.menu-icon:hover {
-  transform: scale(1.05);
+.nav-link {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 300;
+  transition: opacity 0.3s ease;
 }
 
-.menu-dot {
-  width: 10px;
-  height: 10px;
-  background-color: white;
-  border-radius: 1px;
-  transition: background-color 0.3s ease;
-}
-
-.menu-icon:hover .menu-dot {
-  background-color: #ccc;
+.nav-link:hover {
+  opacity: 0.7;
 }
 
 /* Hero Section */
@@ -120,7 +111,20 @@ body, a, button, .project-card, .menu-icon, .logo {
   transition: transform 0.05s linear;
 }
 
-/* Projects Grid */
+/* Projects Section */
+.projects-container {
+  width: 100%;
+}
+
+.section-title {
+  padding: 0 4rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 2rem;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+}
+
 .projects-grid {
   display: flex;
   flex-direction: row;
@@ -218,6 +222,9 @@ body, a, button, .project-card, .menu-icon, .logo {
     padding: 0 2rem 4rem 2rem;
     height: auto;
   }
+  .section-title {
+    padding: 0 2rem;
+  }
   .project-card.portrait, .project-card.landscape {
     flex: auto;
     width: 100%;
@@ -229,5 +236,25 @@ body, a, button, .project-card, .menu-icon, .logo {
   }
   .project-title, .project-category {
     transform: translateY(0);
+  }
+}
+
+/* About Section */
+.about-section {
+  width: 100%;
+  padding: 2rem 4rem 8rem 4rem;
+}
+
+.about-content p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 300;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .about-section {
+    padding: 1rem 2rem 6rem 2rem;
   }
 }
