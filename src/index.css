@@ -417,7 +417,8 @@ body, a, button, .project-card, .menu-icon, .logo {
 .dynamic-word {
   animation: dynamicMotion 1.2s infinite;
   display: inline-block;
-  padding: 0 4px;
+  width: 160px;
+  text-align: center;
 }
 
 /* Video Modal */
