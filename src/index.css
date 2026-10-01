@@ -416,9 +416,13 @@ body, a, button, .project-card, .menu-icon, .logo {
 
 .dynamic-word {
   animation: dynamicMotion 1.2s infinite;
-  display: inline-block;
-  width: 160px;
-  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 3.8em;
+  height: 1.15em;
+  line-height: 1;
+  vertical-align: bottom;
 }
 
 /* Video Modal */
