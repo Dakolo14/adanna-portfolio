@@ -1,16 +1,25 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import './index.css'
 
 function App() {
-  const scrollToProjects = () => {
-    const projectsSection = document.getElementById('projects')
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' })
+  const cursorRef = useRef(null)
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (cursorRef.current) {
+        cursorRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`
+      }
     }
-  }
+
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [])
 
   return (
     <div className="portfolio-app">
+      <div className="custom-cursor" ref={cursorRef}></div>
       <header>
         <div className="logo">
           <span>Adanna Enuks</span>
@@ -33,10 +42,6 @@ function App() {
             Nothing is there to decorate. Everything is there to guide, hold, or resolve.
           </p>
         </section>
-
-        <div className="scroll-indicator-container">
-          <div className="scroll-circle" onClick={scrollToProjects} title="Scroll down"></div>
-        </div>
 
         <section id="projects" className="projects-grid">
           <div className="project-card portrait">

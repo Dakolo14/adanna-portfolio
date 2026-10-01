@@ -98,39 +98,26 @@ header {
   max-width: 500px;
 }
 
-/* Scroll indicator */
-.scroll-indicator-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 4rem 0;
-  width: 100%;
+/* Custom Cursor */
+body, a, button, .project-card, .menu-icon, .logo {
+  cursor: none !important;
 }
 
-.scroll-circle {
-  width: 24px;
-  height: 24px;
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
   background-color: white;
   border-radius: 50%;
-  animation: pulse 2s infinite;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.scroll-circle:hover {
-  transform: scale(1.2);
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-  }
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate3d(-100px, -100px, 0);
+  margin-top: -10px;
+  margin-left: -10px;
+  mix-blend-mode: difference;
+  transition: transform 0.05s linear;
 }
 
 /* Projects Grid */
